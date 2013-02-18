@@ -32,6 +32,8 @@ namespace DataAccessForFluent
 
             modelBuilder.Entity<Trip>().Property(t => t.RowVersion).IsRowVersion();
 
+            modelBuilder.Entity<Person>().Property(p => p.SocialSecurityNumber).IsConcurrencyToken();
+
         }
     }
 }
