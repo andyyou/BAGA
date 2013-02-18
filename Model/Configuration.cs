@@ -20,4 +20,12 @@ namespace Model
             Property(l => l.Name).IsRequired().HasMaxLength(200);
         }
     }
+
+    public class TripConfiguration : EntityTypeConfiguration<Trip>
+    {
+        public TripConfiguration()
+        {
+            HasKey(t => t.Identifier);
+        }
+    }
 }
