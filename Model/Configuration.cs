@@ -44,4 +44,22 @@ namespace Model
         }
     }
 
+    public class AddressConfiguration : ComplexTypeConfiguration<Address>
+    {
+        public AddressConfiguration()
+        {
+            Property(a => a.StreetAddress).HasMaxLength(150);
+        }
+    }
+
+    public class PersonalInfoConfiguration : ComplexTypeConfiguration<PersonalInfo>
+    {
+        public PersonalInfoConfiguration()
+        { 
+        
+        }
+    }
+
+
+
 }

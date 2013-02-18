@@ -14,9 +14,11 @@ namespace Model
         public string LastName { get; set; }
         public byte[] RowVersion { get; set; }
         public Address Address { get; set; }
+        public PersonalInfo Info { get; set; }
         public Person()
         {
             Address = new Address();
+            Info = new PersonalInfo { Weight = new Measurement(), Height = new Measurement() };
         }
 
     }
