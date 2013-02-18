@@ -17,6 +17,7 @@ namespace BreakAwayConsole
             InsertDestination();
             InsertTrip();
             InsertPerson();
+            UpdateTrip();
         }
 
         private static void InsertDestination()
@@ -62,8 +63,39 @@ namespace BreakAwayConsole
             {
                 context.People.Add(person);
                 context.SaveChanges();
+                
             }
         }
+
+        private static void UpdateTrip()
+        {
+            using (var context = new BreakAwayContext())
+            {
+                var trip = context.Trips.FirstOrDefault();
+                trip.CostUSD = 600;
+                Console.WriteLine(trip.RowVersion);
+                context.SaveChanges();
+                Console.WriteLine(trip.RowVersion);
+            }
+        }
+
+        #region Converter
+
+        static DateTime ConvertFromUnixTimestamp(double timestamp)
+        {
+            DateTime origin = new DateTime(1970, 1, 1, 0, 0, 0, 0);
+            return origin.AddSeconds(timestamp);
+        }
+
+
+        static double ConvertToUnixTimestamp(DateTime date)
+        {
+            DateTime origin = new DateTime(1970, 1, 1, 0, 0, 0, 0);
+            TimeSpan diff = date - origin;
+            return Math.Floor(diff.TotalSeconds);
+        }
+
+        #endregion
     }
 
     

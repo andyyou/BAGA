@@ -16,5 +16,7 @@ namespace Model
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public decimal CostUSD { get; set; }
+        [Timestamp]
+        public byte[] RowVersion { get; set; }
     }
 }
