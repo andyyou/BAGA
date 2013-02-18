@@ -41,6 +41,9 @@ namespace DataAccessForFluent
 
             // Use complex type
             modelBuilder.ComplexType<Address>();
+
+            modelBuilder.ComplexType<PersonalInfo>();
+            modelBuilder.ComplexType<Address>().Property(a => a.StreetAddress).HasMaxLength(150);
         }
     }
 }
