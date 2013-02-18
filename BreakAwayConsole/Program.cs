@@ -52,9 +52,9 @@ namespace BreakAwayConsole
         private static void InsertPerson()
         {
             var person = new Person { 
-                FirstName = "Rowan",
+                FirstName = "Rowane",
                 LastName = "Miller",
-                // 這個時候設值是沒用的。
+                // 這個時候設值是沒用的。須加入[Key, DatabaseGenerated(DatabaseGeneratedOption.None)], 加入後如果沒有設值會帶入0
                 SocialSecurityNumber = 12345678
             };
 
