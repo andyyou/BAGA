@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Data.Entity;
 using Model;
 
-namespace DataAccess
+namespace DataAccessForFluent
 {
     public class BreakAwayContext:DbContext
     {
