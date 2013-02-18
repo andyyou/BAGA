@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
 using Model;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DataAccessForFluent
 {
@@ -13,6 +14,7 @@ namespace DataAccessForFluent
         public DbSet<Destination> Destinations { get; set; }
         public DbSet<Lodging> Lodgings { get; set; }
         public DbSet<Trip> Trips { get; set; }
+        public DbSet<Person> People { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -22,7 +24,7 @@ namespace DataAccessForFluent
             modelBuilder.Entity<Lodging>().Property(l => l.Name).IsRequired().HasMaxLength(200);
 
             // 設定Key
-            modelBuilder.Entity<Trip>().HasKey(t => t.Identifier);
+            modelBuilder.Entity<Trip>().HasKey(t => t.Identifier).Property(t => t.Identifier).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
         }
     }
