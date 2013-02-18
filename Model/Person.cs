@@ -13,6 +13,11 @@ namespace Model
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public byte[] RowVersion { get; set; }
+        public Address Address { get; set; }
+        public Person()
+        {
+            Address = new Address();
+        }
 
     }
 }
