@@ -27,6 +27,7 @@ namespace Model
         public TripConfiguration()
         {
             HasKey(t => t.Identifier).Property(t => t.Identifier).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            Property(t => t.RowVersion).IsRowVersion();
         }
     }
 
@@ -36,6 +37,7 @@ namespace Model
         {
             HasKey(p => p.SocialSecurityNumber);
             Property(p => p.SocialSecurityNumber).HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
+            Property(p => p.RowVersion).IsRowVersion();
         }
     }
 

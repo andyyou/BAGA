@@ -11,5 +11,7 @@ namespace Model
         public int SocialSecurityNumber { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public byte[] RowVersion { get; set; }
+
     }
 }
