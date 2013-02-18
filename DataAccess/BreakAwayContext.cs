@@ -12,6 +12,7 @@ namespace DataAccessForFluent
     {
         public DbSet<Destination> Destinations { get; set; }
         public DbSet<Lodging> Lodgings { get; set; }
+        public DbSet<Trip> Trips { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -19,6 +20,9 @@ namespace DataAccessForFluent
             modelBuilder.Entity<Destination>().Property(d => d.Description).HasMaxLength(500);
             modelBuilder.Entity<Destination>().Property(d => d.Photo).HasColumnType("image");
             modelBuilder.Entity<Lodging>().Property(l => l.Name).IsRequired().HasMaxLength(200);
+
+            // 設定Key
+            modelBuilder.Entity<Trip>().HasKey(t => t.Identifier);
 
         }
     }
