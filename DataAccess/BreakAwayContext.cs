@@ -34,6 +34,8 @@ namespace DataAccessForFluent
 
             modelBuilder.Entity<Person>().Property(p => p.SocialSecurityNumber).IsConcurrencyToken();
 
+            modelBuilder.Entity<Lodging>().Property(l => l.Owner).IsUnicode(false);
+
         }
     }
 }
