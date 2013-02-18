@@ -19,7 +19,7 @@ namespace BreakAwayConsole
             InsertTrip();
             UpdateTrip();
 
-            // InsertPerson();
+            InsertPerson();
             UpdatePerson();
         }
 
@@ -58,7 +58,7 @@ namespace BreakAwayConsole
             var person = new Person { 
                 FirstName = "Andy",
                 LastName = "You",
-                SocialSecurityNumber = 1234567890
+                SocialSecurityNumber = 134567
             };
 
             using (var context = new BreakAwayContext())
