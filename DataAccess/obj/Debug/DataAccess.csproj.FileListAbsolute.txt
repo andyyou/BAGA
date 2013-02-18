@@ -1,0 +1,10 @@
+C:\Projects\BAGA\DataAccess\bin\Debug\DataAccess.dll.config
+C:\Projects\BAGA\DataAccess\bin\Debug\DataAccess.dll
+C:\Projects\BAGA\DataAccess\bin\Debug\DataAccess.pdb
+C:\Projects\BAGA\DataAccess\bin\Debug\EntityFramework.dll
+C:\Projects\BAGA\DataAccess\bin\Debug\Model.dll
+C:\Projects\BAGA\DataAccess\bin\Debug\Model.pdb
+C:\Projects\BAGA\DataAccess\bin\Debug\EntityFramework.xml
+C:\Projects\BAGA\DataAccess\obj\Debug\DataAccess.csprojResolveAssemblyReference.cache
+C:\Projects\BAGA\DataAccess\obj\Debug\DataAccess.dll
+C:\Projects\BAGA\DataAccess\obj\Debug\DataAccess.pdb

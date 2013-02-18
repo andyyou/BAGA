@@ -1,0 +1,12 @@
+C:\Projects\BAGA\BreakAwayConsole\bin\Debug\BreakAwayConsole.exe.config
+C:\Projects\BAGA\BreakAwayConsole\bin\Debug\BreakAwayConsole.exe
+C:\Projects\BAGA\BreakAwayConsole\bin\Debug\BreakAwayConsole.pdb
+C:\Projects\BAGA\BreakAwayConsole\bin\Debug\DataAccess.dll
+C:\Projects\BAGA\BreakAwayConsole\bin\Debug\EntityFramework.dll
+C:\Projects\BAGA\BreakAwayConsole\bin\Debug\Model.dll
+C:\Projects\BAGA\BreakAwayConsole\bin\Debug\DataAccess.pdb
+C:\Projects\BAGA\BreakAwayConsole\bin\Debug\Model.pdb
+C:\Projects\BAGA\BreakAwayConsole\bin\Debug\EntityFramework.xml
+C:\Projects\BAGA\BreakAwayConsole\obj\Debug\BreakAwayConsole.csprojResolveAssemblyReference.cache
+C:\Projects\BAGA\BreakAwayConsole\obj\Debug\BreakAwayConsole.exe
+C:\Projects\BAGA\BreakAwayConsole\obj\Debug\BreakAwayConsole.pdb
