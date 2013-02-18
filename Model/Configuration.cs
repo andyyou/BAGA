@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
 
 namespace Model
@@ -25,7 +26,9 @@ namespace Model
     {
         public TripConfiguration()
         {
-            HasKey(t => t.Identifier);
+            HasKey(t => t.Identifier).Property(t => t.Identifier).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
         }
     }
+
+
 }
