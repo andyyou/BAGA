@@ -38,6 +38,9 @@ namespace DataAccessForFluent
 
             // 設定 decimal 位數
             modelBuilder.Entity<Lodging>().Property(l => l.MilesFromNearestAirport).HasPrecision(8, 1);
+
+            // Use complex type
+            modelBuilder.ComplexType<Address>();
         }
     }
 }
