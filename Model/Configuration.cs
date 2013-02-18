@@ -19,6 +19,7 @@ namespace Model
         public LodgingConfiguration()
         {
             Property(l => l.Name).IsRequired().HasMaxLength(200);
+            Property(l => l.Owner).IsUnicode(false);
         }
     }
 
