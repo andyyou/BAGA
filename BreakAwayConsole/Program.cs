@@ -17,6 +17,7 @@ namespace BreakAwayConsole
             InsertDestination();
             InsertTrip();
             InsertPerson();
+            UpdateTrip();
         }
 
         private static void InsertDestination()
@@ -54,7 +55,7 @@ namespace BreakAwayConsole
             var person = new Person { 
                 FirstName = "Andy",
                 LastName = "You",
-                SocialSecurityNumber = 12345678
+                SocialSecurityNumber = 123456789
             };
 
             using (var context = new BreakAwayContext())
@@ -63,6 +64,16 @@ namespace BreakAwayConsole
                 context.SaveChanges();
             }
 
+        }
+
+        private static void UpdateTrip()
+        {
+            using (var context = new BreakAwayContext())
+            {
+                var trip = context.Trips.FirstOrDefault();
+                trip.CostUSD = 750;
+                context.SaveChanges();
+            }
         }
     }
 

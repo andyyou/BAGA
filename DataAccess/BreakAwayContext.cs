@@ -28,6 +28,10 @@ namespace DataAccessForFluent
 
             modelBuilder.Entity<Person>().HasKey(p => p.SocialSecurityNumber).Property(p => p.SocialSecurityNumber).HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
 
+            modelBuilder.Entity<Person>().Property(p => p.RowVersion).IsRowVersion();
+
+            modelBuilder.Entity<Trip>().Property(t => t.RowVersion).IsRowVersion();
+
         }
     }
 }
