@@ -21,6 +21,7 @@ namespace DataAccessForEntityType
             modelBuilder.Configurations.Add(new LodgingConfiguration());
             modelBuilder.Configurations.Add(new TripConfiguration());
             modelBuilder.Configurations.Add(new PersonConfiguration());
+            modelBuilder.ComplexType<Address>();
         }
     }
 }
