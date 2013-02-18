@@ -26,6 +26,8 @@ namespace DataAccessForFluent
             // 設定Key
             modelBuilder.Entity<Trip>().HasKey(t => t.Identifier).Property(t => t.Identifier).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
+            modelBuilder.Entity<Person>().HasKey(p => p.SocialSecurityNumber).Property(p => p.SocialSecurityNumber).HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
+
         }
     }
 }
