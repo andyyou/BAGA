@@ -19,7 +19,7 @@ namespace BreakAwayConsole
             InsertTrip();
             UpdateTrip();
 
-            InsertPerson();
+            // InsertPerson();
             UpdatePerson();
         }
 

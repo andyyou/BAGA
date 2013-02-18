@@ -36,6 +36,8 @@ namespace DataAccessForFluent
 
             modelBuilder.Entity<Lodging>().Property(l => l.Owner).IsUnicode(false);
 
+            // 設定 decimal 位數
+            modelBuilder.Entity<Lodging>().Property(l => l.MilesFromNearestAirport).HasPrecision(8, 1);
         }
     }
 }
