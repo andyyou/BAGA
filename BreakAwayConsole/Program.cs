@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Model;
-using DataAccess;
 using System.Data.Entity;
+using DataAccessForEntityType;
 
 namespace BreakAwayConsole
 {
