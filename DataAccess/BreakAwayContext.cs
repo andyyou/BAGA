@@ -13,12 +13,14 @@ namespace DataAccessForEntityType
         public DbSet<Destination> Destinations { get; set; }
         public DbSet<Lodging> Lodgings { get; set; }
         public DbSet<Trip> Trips { get; set; }
+        public DbSet<Person> People { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new DestinationConfiguration());
             modelBuilder.Configurations.Add(new LodgingConfiguration());
             modelBuilder.Configurations.Add(new TripConfiguration());
+            modelBuilder.Configurations.Add(new PersonConfiguration());
         }
     }
 }

@@ -30,5 +30,13 @@ namespace Model
         }
     }
 
+    public class PersonConfiguration : EntityTypeConfiguration<Person>
+    {
+        public PersonConfiguration()
+        {
+            HasKey(p => p.SocialSecurityNumber);
+            Property(p => p.SocialSecurityNumber).HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
+        }
+    }
 
 }
