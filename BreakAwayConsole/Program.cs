@@ -15,9 +15,12 @@ namespace BreakAwayConsole
         {
             Database.SetInitializer(new DropCreateDatabaseIfModelChanges<BreakAwayContext>());
             InsertDestination();
+
             InsertTrip();
-            InsertPerson();
             UpdateTrip();
+
+            InsertPerson();
+            UpdatePerson();
         }
 
         private static void InsertDestination()
@@ -56,7 +59,7 @@ namespace BreakAwayConsole
                 FirstName = "Rowane",
                 LastName = "Miller",
                 // 這個時候設值是沒用的。須加入[Key, DatabaseGenerated(DatabaseGeneratedOption.None)], 加入後如果沒有設值會帶入0
-                SocialSecurityNumber = 12345678
+                SocialSecurityNumber = 123456789
             };
 
             using (var context = new BreakAwayContext())
@@ -78,6 +81,17 @@ namespace BreakAwayConsole
                 Console.WriteLine(trip.RowVersion);
             }
         }
+
+        private static void UpdatePerson()
+        {
+            using (var context = new BreakAwayContext())
+            {
+                var person = context.People.FirstOrDefault();
+                person.FirstName = "Rowena!";
+                context.SaveChanges();
+            }
+        }
+
 
         #region Converter
 

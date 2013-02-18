@@ -10,7 +10,9 @@ namespace Model
 {
     public class Person
     {
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int PersonId { get; set; }
+        // [Key, DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [ConcurrencyCheck] // 更新，刪除，都會多確認SocialSecurityNumber是否一致。
         public int SocialSecurityNumber { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
