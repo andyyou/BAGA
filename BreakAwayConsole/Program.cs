@@ -16,8 +16,10 @@ namespace BreakAwayConsole
             Database.SetInitializer(new DropCreateDatabaseIfModelChanges<BreakAwayContext>());
             InsertDestination();
             InserTrip();
-            InsertPerson();
             UpdateTrip();
+
+            InsertPerson();
+            UpdatePerson();
         }
 
         private static void InsertDestination()
@@ -53,7 +55,7 @@ namespace BreakAwayConsole
         private static void InsertPerson()
         {
             var person = new Person {
-                SocialSecurityNumber = 123456789,
+                SocialSecurityNumber = 1234567890,
                 FirstName = "Ken",
                 LastName = "Miller"
             };
@@ -71,6 +73,16 @@ namespace BreakAwayConsole
             {
                 var trip = context.Trips.FirstOrDefault();
                 trip.CostUSD = 750;
+                context.SaveChanges();
+            }
+        }
+
+        private static void UpdatePerson()
+        {
+            using (var context = new BreakAwayContext())
+            {
+                var person = context.People.FirstOrDefault();
+                person.FirstName = "Curz";
                 context.SaveChanges();
             }
         }

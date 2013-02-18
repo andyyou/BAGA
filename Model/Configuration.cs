@@ -38,6 +38,7 @@ namespace Model
             HasKey(p => p.SocialSecurityNumber);
             Property(p => p.SocialSecurityNumber).HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
             Property(p => p.RowVersion).IsRowVersion();
+            Property(p => p.SocialSecurityNumber).IsConcurrencyToken();
         }
     }
 
