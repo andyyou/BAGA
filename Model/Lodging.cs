@@ -19,5 +19,6 @@ namespace Model
         public List<InternetSpecial> InternetSpecials { get; set; }
         public Person PrimaryContact { get; set; }
         public Person SecondaryContact { get; set; }
+       
     }
 }

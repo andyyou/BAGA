@@ -72,6 +72,14 @@ namespace Model
         }
     }
 
+    public class ActivityConfiguration : EntityTypeConfiguration<Activity>
+    {
+        public ActivityConfiguration()
+        {
+            Property(a => a.Name).IsRequired().HasMaxLength(150);
+        }
+    }
+
 
 
 
