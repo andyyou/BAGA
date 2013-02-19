@@ -8,11 +8,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Model
 {
+    [Table("Locations")]
     public class Destination
     {
-        [Key]
+        [Key, Column("LocationID")]
         public int DestinationId { get; set; }
-        [Required]
+        [Required, Column("LocationName")]
         public string Name { get; set; }
         public string Country { get; set; }
         [MaxLength(500)]

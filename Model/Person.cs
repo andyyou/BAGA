@@ -10,7 +10,7 @@ namespace Model
 {
     public class Person
     {
-
+        [Key]
         public int PersonId { get; set; }
         // [Key, DatabaseGenerated(DatabaseGeneratedOption.None)]
         [ConcurrencyCheck] // 更新，刪除，都會多確認SocialSecurityNumber是否一致。
@@ -29,7 +29,7 @@ namespace Model
         {
             Address = new Address();
             Info = new PersonalInfo { Weight = new Measurement(), Height = new Measurement() };
-            Photo = new PersonPhoto { Photo = new Byte[] { 0 } };
+            // Photo = new PersonPhoto { Photo = new Byte[] { 0 } };
         }
     }
 }

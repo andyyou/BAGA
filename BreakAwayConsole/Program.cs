@@ -62,7 +62,8 @@ namespace BreakAwayConsole
                 FirstName = "Rowane",
                 LastName = "Miller",
                 // 這個時候設值是沒用的。須加入[Key, DatabaseGenerated(DatabaseGeneratedOption.None)], 加入後如果沒有設值會帶入0
-                SocialSecurityNumber = 123456789
+                SocialSecurityNumber = 12345678,
+                Photo = new PersonPhoto { Photo = new Byte[] { 0 } } 
             };
 
             using (var context = new BreakAwayContext())
@@ -89,8 +90,12 @@ namespace BreakAwayConsole
         {
             using (var context = new BreakAwayContext())
             {
-                var person = context.People.FirstOrDefault();
+                var person = context.People.Include("Photo").FirstOrDefault();
                 person.FirstName = "Rowena!";
+                if (person.Photo == null)
+                {
+                    person.Photo = new PersonPhoto { Photo = new byte[] { 0 } };
+                }
                 context.SaveChanges();
             }
         }
