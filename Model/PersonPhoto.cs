@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
+    [Table("PersonPhotos")]
     public class PersonPhoto
     {
         [Key]
