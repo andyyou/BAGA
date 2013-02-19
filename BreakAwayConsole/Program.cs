@@ -20,6 +20,10 @@ namespace BreakAwayConsole
 
             InsertPerson();
             UpdatePerson();
+
+            DeleteDestinationInMemoryAndDbCascade();
+
+            Console.Read();
         }
 
         private static void InsertDestination()
@@ -55,7 +59,7 @@ namespace BreakAwayConsole
         private static void InsertPerson()
         {
             var person = new Person {
-                SocialSecurityNumber = 123456782,
+                SocialSecurityNumber = 1234567821,
                 FirstName = "Ken",
                 LastName = "Miller"
             };
@@ -83,6 +87,28 @@ namespace BreakAwayConsole
             {
                 var person = context.People.FirstOrDefault();
                 person.FirstName = "Curz";
+                context.SaveChanges();
+            }
+        }
+
+        private static void DeleteDestinationInMemoryAndDbCascade()
+        {
+            int destinationId;
+            using (var context = new BreakAwayContext())
+            {
+                var destination = new Destination { Name = "Sample Destination", Lodgings = new List<Lodging> { new Lodging{ Name = "Lodging One"}, new Lodging{ Name = "Lodging Two"} } };
+
+                context.Destinations.Add(destination);
+                context.SaveChanges();
+                destinationId = destination.DestinationId;
+            }
+
+            using (var context = new BreakAwayContext())
+            {
+                var destination = context.Destinations.Include("Lodgings").Single(d => d.DestinationId == destinationId);
+                var aLodging = destination.Lodgings.FirstOrDefault();
+                context.Destinations.Remove(destination);
+                Console.WriteLine("State of one Lodging: {0}", context.Entry(aLodging).State.ToString());
                 context.SaveChanges();
             }
         }
