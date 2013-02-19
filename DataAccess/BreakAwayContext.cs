@@ -50,6 +50,7 @@ namespace DataAccessForFluent
             // modelBuilder.Entity<Destination>().HasMany(d => d.Lodgings).WithOptional(l => l.Destination);
             // 單個必須
             modelBuilder.Entity<Destination>().HasMany(d => d.Lodgings).WithRequired(l => l.Destination);
+           
         }
     }
 }

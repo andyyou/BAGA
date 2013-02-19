@@ -14,7 +14,10 @@ namespace Model
         public string Name { get; set; }
         public string Owner { get; set; }
         public bool IsResort { get; set; }
+        // 在Fluent API 中無法直接對物件下[Required]
         public Destination Destination { get; set; }
+        public int DestinationId { get; set; }
+
         public decimal MilesFromNearestAirport { get; set; }
     }
 }
