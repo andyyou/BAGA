@@ -55,7 +55,7 @@ namespace BreakAwayConsole
         private static void InsertPerson()
         {
             var person = new Person {
-                SocialSecurityNumber = 1234567890,
+                SocialSecurityNumber = 123456782,
                 FirstName = "Ken",
                 LastName = "Miller"
             };
