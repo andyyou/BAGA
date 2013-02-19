@@ -68,7 +68,8 @@ namespace DataAccessForFluent
             // 設定 1 對 1 或 1 對 0
             modelBuilder.Entity<PersonPhoto>().HasKey(p => p.PersonId);
             modelBuilder.Entity<PersonPhoto>().HasRequired(p => p.PhotoOf).WithOptional(p => p.Photo);
-           
+
+            modelBuilder.Entity<PersonPhoto>().HasRequired(p => p.PhotoOf).WithRequiredDependent(p => p.Photo);           
         }
     }
 }
