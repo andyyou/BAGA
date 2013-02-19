@@ -26,7 +26,8 @@ namespace DataAccessForFluent
             // 設定Key
             modelBuilder.Entity<Trip>().HasKey(t => t.Identifier).Property(t => t.Identifier).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
-            modelBuilder.Entity<Person>().HasKey(p => p.SocialSecurityNumber).Property(p => p.SocialSecurityNumber).HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
+            // modelBuilder.Entity<Person>().HasKey(p => p.SocialSecurityNumber).Property(p => p.SocialSecurityNumber).HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
+            
 
             modelBuilder.Entity<Person>().Property(p => p.RowVersion).IsRowVersion();
 
@@ -67,9 +68,11 @@ namespace DataAccessForFluent
 
             // 設定 1 對 1 或 1 對 0
             modelBuilder.Entity<PersonPhoto>().HasKey(p => p.PersonId);
-            modelBuilder.Entity<PersonPhoto>().HasRequired(p => p.PhotoOf).WithOptional(p => p.Photo);
+            // modelBuilder.Entity<PersonPhoto>().HasRequired(p => p.PhotoOf).WithOptional(p => p.Photo);
 
             modelBuilder.Entity<PersonPhoto>().HasRequired(p => p.PhotoOf).WithRequiredDependent(p => p.Photo);
+
+            
             
             // 修改資料庫 Table Name
             modelBuilder.Entity<PersonPhoto>().ToTable("PersonPhotots");
