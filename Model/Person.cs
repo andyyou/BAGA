@@ -23,11 +23,13 @@ namespace Model
         public PersonalInfo Info { get; set; }
         public List<Lodging> PrimaryContactFor { get; set; }
         public List<Lodging> SecondaryContactFor { get; set; }
+        [Required]
         public PersonPhoto Photo { get; set; }
         public Person()
         {
             Address = new Address();
             Info = new PersonalInfo { Weight = new Measurement(), Height = new Measurement() };
+            Photo = new PersonPhoto { Photo = new Byte[] { 0 } };
         }
     }
 }
