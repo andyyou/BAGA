@@ -47,9 +47,9 @@ namespace DataAccessForFluent
 
             // 設定一對多關係
             // 預設
-            // modelBuilder.Entity<Destination>().HasMany(d => d.Lodgings).WithOptional(l => l.Destination);
+            modelBuilder.Entity<Destination>().HasMany(d => d.Lodgings).WithOptional(l => l.Destination);
             // 單個必須
-            // modelBuilder.Entity<Destination>().HasMany(d => d.Lodgings).WithRequired(l => l.Destination);
+            modelBuilder.Entity<Destination>().HasMany(d => d.Lodgings).WithRequired(l => l.Destination);
 
             // modelBuilder.Entity<Lodging>().Property(l => l.Name).IsRequired();
 
@@ -63,7 +63,7 @@ namespace DataAccessForFluent
             // modelBuilder.Entity<Lodging>().HasRequired(l => l.Destination).WithMany(d => d.Lodgings).WillCascadeOnDelete(false);
 
             // 這邊要注意因為已經沒有Destination了
-            modelBuilder.Entity<Destination>().HasMany(d => d.Lodgings).WithRequired().HasForeignKey(l => l.LocationId);
+            // modelBuilder.Entity<Destination>().HasMany(d => d.Lodgings).WithRequired().HasForeignKey(l => l.LocationId);
            
         }
     }
