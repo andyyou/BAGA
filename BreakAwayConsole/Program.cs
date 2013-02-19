@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Model;
 using System.Data.Entity;
 using DataAccessForEntityType;
+using System.Data.Entity.Validation;
+using System.Diagnostics;
 
 namespace BreakAwayConsole
 {
@@ -59,7 +61,7 @@ namespace BreakAwayConsole
         private static void InsertPerson()
         {
             var person = new Person {
-                SocialSecurityNumber = 1234567827,
+                SocialSecurityNumber = 345699258,
                 FirstName = "Ken",
                 LastName = "Miller"
             };
@@ -85,13 +87,23 @@ namespace BreakAwayConsole
         {
             using (var context = new BreakAwayContext())
             {
-                var person = context.People.Include("Photo").FirstOrDefault();
+                var person = context.People.FirstOrDefault();
                 person.FirstName = "Curz";
-                if (person.Photo == null)
+                
+                try
                 {
-                    person.Photo = new PersonPhoto { Photo = new Byte[] { 0 } }; 
+                    context.SaveChanges();
                 }
-                context.SaveChanges();
+                catch (DbEntityValidationException dbEx)
+                {
+                    foreach (var validationErrors in dbEx.EntityValidationErrors)
+                    {
+                        foreach (var validationError in validationErrors.ValidationErrors)
+                        {
+                            Trace.TraceInformation("Property: {0} Error: {1}", validationError.PropertyName, validationError.ErrorMessage);
+                        }
+                    }
+                }
             }
         }
 
