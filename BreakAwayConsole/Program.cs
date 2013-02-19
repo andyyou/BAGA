@@ -59,7 +59,7 @@ namespace BreakAwayConsole
         private static void InsertPerson()
         {
             var person = new Person {
-                SocialSecurityNumber = 1234567823,
+                SocialSecurityNumber = 1234567827,
                 FirstName = "Ken",
                 LastName = "Miller"
             };
@@ -85,8 +85,12 @@ namespace BreakAwayConsole
         {
             using (var context = new BreakAwayContext())
             {
-                var person = context.People.FirstOrDefault();
+                var person = context.People.Include("Photo").FirstOrDefault();
                 person.FirstName = "Curz";
+                if (person.Photo == null)
+                {
+                    person.Photo = new PersonPhoto { Photo = new Byte[] { 0 } }; 
+                }
                 context.SaveChanges();
             }
         }

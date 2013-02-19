@@ -22,6 +22,7 @@ namespace Model
         {
             Address = new Address();
             Info = new PersonalInfo { Weight = new Measurement(), Height = new Measurement() };
+            Photo = new PersonPhoto { Photo = new byte[] { 0 } };
         }
 
     }

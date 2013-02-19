@@ -87,6 +87,7 @@ namespace Model
         {
             HasKey(p => p.PersonId);
             HasRequired(p => p.PhotoOf).WithOptional(p => p.Photo);
+            HasRequired(p => p.PhotoOf).WithRequiredDependent(p => p.Photo);
         }
     }
 
