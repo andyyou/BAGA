@@ -13,5 +13,6 @@ namespace Model
         public DateTime EndDate { get; set; }
         public decimal CostUSD { get; set; }
         public byte[] RowVersion { get; set; }
+        public List<Activity> Activities { get; set; }
     }
 }

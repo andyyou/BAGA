@@ -61,13 +61,14 @@ namespace BreakAwayConsole
             var person = new Person { 
                 FirstName = "Andy",
                 LastName = "You",
-                SocialSecurityNumber = 134567224
+                SocialSecurityNumber = 134567226
             };
 
             using (var context = new BreakAwayContext())
             {
                 context.People.Add(person);
                 context.SaveChanges();
+
             }
 
         }
@@ -116,9 +117,24 @@ namespace BreakAwayConsole
             {
                 var destination = context.Destinations.Include("Lodgings").Single(d => d.DestinationId == destinationId);
                 var aLodging = destination.Lodgings.FirstOrDefault();
+                var bLodging = destination.Lodgings.LastOrDefault();
                 context.Destinations.Remove(destination);
                 Console.WriteLine("State of one Lodging : {0}", context.Entry(aLodging).State.ToString());
-                context.SaveChanges();
+                try
+                {
+                    context.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    context.Lodgings.Remove(aLodging);
+                    context.Lodgings.Remove(bLodging);
+                }
+                finally
+                {
+                    context.SaveChanges();
+                    Console.WriteLine("Save Completed");
+                }
             }
         }
     }
