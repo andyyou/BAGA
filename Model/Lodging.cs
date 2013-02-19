@@ -18,9 +18,11 @@ namespace Model
         public string Owner { get; set; }
         public bool IsResort { get; set; }
         // 當兩個都有時，看誰先。
-        public int DestinationId { get; set; }
-        [Required]
-        public Destination Destination { get; set; }
+
+        // public int DestinationId { get; set; }
+        // [Required]
+        // public Destination Destination { get; set; }
+        public int LocationId { get; set; }
 
         public List<InternetSpecial> InternetSpecials { get; set; }
         [InverseProperty("PrimaryContactFor")]
