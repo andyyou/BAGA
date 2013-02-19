@@ -71,7 +71,7 @@ namespace DataAccessForFluent
             // modelBuilder.Entity<PersonPhoto>().HasRequired(p => p.PhotoOf).WithOptional(p => p.Photo);
 
             modelBuilder.Entity<PersonPhoto>().HasRequired(p => p.PhotoOf).WithRequiredDependent(p => p.Photo);
-
+            modelBuilder.Entity<Person>().HasRequired(p => p.Photo).WithRequiredPrincipal(p => p.PhotoOf);
             
             
             // 修改資料庫 Table Name
