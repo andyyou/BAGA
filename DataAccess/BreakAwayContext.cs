@@ -50,6 +50,10 @@ namespace DataAccessForFluent
             // modelBuilder.Entity<Destination>().HasMany(d => d.Lodgings).WithOptional(l => l.Destination);
             // 單個必須
             modelBuilder.Entity<Destination>().HasMany(d => d.Lodgings).WithRequired(l => l.Destination);
+
+            // modelBuilder.Entity<Lodging>().Property(l => l.Name).IsRequired();
+
+            modelBuilder.Entity<InternetSpecial>().HasRequired(i => i.Accommodation).WithMany(l => l.InternetSpecials).HasForeignKey(i => i.AccommodationId);
            
         }
     }
