@@ -25,6 +25,7 @@ namespace DataAccessForEntityType
             modelBuilder.Configurations.Add(new PersonalInfoConfiguration());
             modelBuilder.Configurations.Add(new InternetSpecialConfiguration());
             modelBuilder.Configurations.Add(new ActivityConfiguration());
+            modelBuilder.Configurations.Add(new PersonPhotoConfiguration());
             modelBuilder.ComplexType<Address>();
         }
     }
