@@ -58,6 +58,9 @@ namespace DataAccessForFluent
             // 當一個類別有兩個同樣屬性時設定
             modelBuilder.Entity<Lodging>().HasOptional(l => l.PrimaryContact).WithMany(p => p.PrimaryContactFor);
             modelBuilder.Entity<Lodging>().HasOptional(l => l.SecondaryContact).WithMany(p => p.SecondaryContactFor);
+
+            // 不使用重複刪除
+            modelBuilder.Entity<Lodging>().HasRequired(l => l.Destination).WithMany(d => d.Lodgings).WillCascadeOnDelete(false);
            
         }
     }
