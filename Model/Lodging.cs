@@ -16,5 +16,6 @@ namespace Model
         public bool IsResort { get; set; }
         public Destination Destination { get; set; }
         public decimal MilesFromNearestAirport { get; set; }
+        public List<InternetSpecial> InternetSpecials { get; set; }
     }
 }

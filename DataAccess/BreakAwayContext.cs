@@ -23,6 +23,7 @@ namespace DataAccessForEntityType
             modelBuilder.Configurations.Add(new PersonConfiguration());
             modelBuilder.Configurations.Add(new AddressConfiguration());
             modelBuilder.Configurations.Add(new PersonalInfoConfiguration());
+            modelBuilder.Configurations.Add(new InternetSpecialConfiguration());
             modelBuilder.ComplexType<Address>();
         }
     }

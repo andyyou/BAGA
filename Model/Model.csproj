@@ -47,6 +47,7 @@
     <Compile Include="Address.cs" />
     <Compile Include="Destination.cs" />
     <Compile Include="Configuration.cs" />
+    <Compile Include="InternetSpecial.cs" />
     <Compile Include="Lodging.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="PersonalInfo.cs" />

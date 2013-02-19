@@ -61,6 +61,15 @@ namespace Model
         }
     }
 
+    public class InternetSpecialConfiguration : EntityTypeConfiguration<InternetSpecial>
+    {
+        public InternetSpecialConfiguration()
+        {
+            HasRequired(i => i.Accommodation).WithMany(l => l.InternetSpecials).HasForeignKey(i => i.AccommodationId);
+        }
+    }
+
+
 
 
 }
