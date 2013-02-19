@@ -54,6 +54,10 @@ namespace DataAccessForFluent
             // modelBuilder.Entity<Lodging>().Property(l => l.Name).IsRequired();
 
             modelBuilder.Entity<InternetSpecial>().HasRequired(i => i.Accommodation).WithMany(l => l.InternetSpecials).HasForeignKey(i => i.AccommodationId);
+
+            // 當一個類別有兩個同樣屬性時設定
+            modelBuilder.Entity<Lodging>().HasOptional(l => l.PrimaryContact).WithMany(p => p.PrimaryContactFor);
+            modelBuilder.Entity<Lodging>().HasOptional(l => l.SecondaryContact).WithMany(p => p.SecondaryContactFor);
            
         }
     }
