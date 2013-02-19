@@ -60,10 +60,12 @@ namespace BreakAwayConsole
 
         private static void InsertPerson()
         {
-            var person = new Person {
-                SocialSecurityNumber = 345699258,
+            var person = new Person
+            {
+                SocialSecurityNumber = 125699258,
                 FirstName = "Ken",
                 LastName = "Miller"
+                // Photo = new PersonPhoto { Photo = new byte[] { 0 } }
             };
 
             using (var context = new BreakAwayContext())
@@ -87,23 +89,29 @@ namespace BreakAwayConsole
         {
             using (var context = new BreakAwayContext())
             {
+                // var person = context.People.Include("Photo").FirstOrDefault();
                 var person = context.People.FirstOrDefault();
                 person.FirstName = "Curz";
-                
-                try
-                {
+                //if (person.Photo == null)
+                //{
+                //   person.Photo = new PersonPhoto { Photo = new Byte[] { 0 } }; 
+                //}
+
+
+                //try
+                //{
                     context.SaveChanges();
-                }
-                catch (DbEntityValidationException dbEx)
-                {
-                    foreach (var validationErrors in dbEx.EntityValidationErrors)
-                    {
-                        foreach (var validationError in validationErrors.ValidationErrors)
-                        {
-                            Trace.TraceInformation("Property: {0} Error: {1}", validationError.PropertyName, validationError.ErrorMessage);
-                        }
-                    }
-                }
+                //}
+                //catch (DbEntityValidationException dbEx)
+                //{
+                //    foreach (var validationErrors in dbEx.EntityValidationErrors)
+                //    {
+                //        foreach (var validationError in validationErrors.ValidationErrors)
+                //        {
+                //            Trace.TraceInformation("Property: {0} Error: {1}", validationError.PropertyName, validationError.ErrorMessage);
+                //        }
+                //    }
+                //}
             }
         }
 

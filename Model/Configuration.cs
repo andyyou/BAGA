@@ -42,10 +42,11 @@ namespace Model
     {
         public PersonConfiguration()
         {
-            HasKey(p => p.SocialSecurityNumber);
+            // HasKey(p => p.SocialSecurityNumber);
             Property(p => p.SocialSecurityNumber).HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
             Property(p => p.RowVersion).IsRowVersion();
             Property(p => p.SocialSecurityNumber).IsConcurrencyToken();
+            HasRequired(p => p.Photo);
         }
     }
 
@@ -86,9 +87,9 @@ namespace Model
         public PersonPhotoConfiguration()
         {
             HasKey(p => p.PersonId);
-            HasRequired(p => p.PhotoOf).WithOptional(p => p.Photo);
-            // HasRequired(p => p.PhotoOf).WithRequiredDependent(p => p.Photo);
-            HasEntitySetName("PersonPhotos");
+            // HasRequired(p => p.PhotoOf).WithOptional(p => p.Photo);
+            HasRequired(p => p.PhotoOf).WithRequiredDependent(p => p.Photo);
+            // HasEntitySetName("PersonPhotos");
             ToTable("PersonPhotos");
 
         }
