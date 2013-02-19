@@ -21,6 +21,9 @@ namespace BreakAwayConsole
 
             InsertPerson();
             UpdatePerson();
+
+            DeleteDestinationInMemoryAndDbCascase();
+            Console.Read();
         }
 
         private static void InsertDestination()
@@ -92,6 +95,34 @@ namespace BreakAwayConsole
             }
         }
 
+        private static void DeleteDestinationInMemoryAndDbCascase()
+        {
+            int destinationId;
+
+            using (var context = new BreakAwayContext())
+            {
+                var destination = new Destination
+                {
+                    Name = "Sample Destination",
+                    Lodgings =new List<Lodging> { 
+                        new Lodging{ Name = "Lodging One"},
+                        new Lodging{ Name = "Lodging Two"}
+                    }
+                };
+                context.Destinations.Add(destination);
+                context.SaveChanges();
+                destinationId = destination.DestinationId;
+            }
+
+            using (var context = new BreakAwayContext())
+            {
+                var destination = context.Destinations.Include("Lodgings").Single(d => d.DestinationId == destinationId);
+                var aLodging = destination.Lodgings.FirstOrDefault();
+                context.Destinations.Remove(destination);
+                Console.WriteLine("State of one Lodging : {0}", context.Entry(aLodging).State.ToString());
+                context.SaveChanges();
+            }
+        }
 
         #region Converter
 
