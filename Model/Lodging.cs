@@ -17,5 +17,7 @@ namespace Model
         public Destination Destination { get; set; }
         public decimal MilesFromNearestAirport { get; set; }
         public List<InternetSpecial> InternetSpecials { get; set; }
+        public Person PrimaryContact { get; set; }
+        public Person SecondaryContact { get; set; }
     }
 }
