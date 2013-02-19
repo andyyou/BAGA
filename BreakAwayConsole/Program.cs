@@ -59,7 +59,7 @@ namespace BreakAwayConsole
         private static void InsertPerson()
         {
             var person = new Person {
-                SocialSecurityNumber = 1234567821,
+                SocialSecurityNumber = 1234567823,
                 FirstName = "Ken",
                 LastName = "Miller"
             };
@@ -107,9 +107,24 @@ namespace BreakAwayConsole
             {
                 var destination = context.Destinations.Include("Lodgings").Single(d => d.DestinationId == destinationId);
                 var aLodging = destination.Lodgings.FirstOrDefault();
+                var bLodging = destination.Lodgings.LastOrDefault();
                 context.Destinations.Remove(destination);
                 Console.WriteLine("State of one Lodging: {0}", context.Entry(aLodging).State.ToString());
-                context.SaveChanges();
+                // 如果關閉聯集刪除就必須為Required的屬性作處理.
+                try
+                {
+                    context.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    context.Lodgings.Remove(aLodging);
+                    context.Lodgings.Remove(bLodging);
+                }
+                finally
+                {
+                    context.SaveChanges();
+                }
             }
         }
     }

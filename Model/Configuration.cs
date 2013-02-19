@@ -24,6 +24,7 @@ namespace Model
             Property(l => l.MilesFromNearestAirport).HasPrecision(8, 1);
             HasOptional(l => l.PrimaryContact).WithMany(p => p.PrimaryContactFor);
             HasOptional(l => l.SecondaryContact).WithMany(p => p.SecondaryContactFor);
+            HasRequired(l => l.Destination).WithMany(d => d.Lodgings).WillCascadeOnDelete(false);
         }
     }
 
