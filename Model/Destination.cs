@@ -19,7 +19,7 @@ namespace Model
         public string Description { get; set; }
         [Column(TypeName="image")]
         public byte[] Photo { get; set; }
-        [ForeignKey("LocationId")]
+        // [ForeignKey("LocationId")]
         public List<Lodging> Lodgings { get; set; }
     }
 }
