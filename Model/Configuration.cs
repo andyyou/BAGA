@@ -11,8 +11,8 @@ namespace Model
             Property(d => d.Name).IsRequired();
             Property(d => d.Description).HasMaxLength(500);
             Property(d => d.Photo).HasColumnType("image");
-            // HasMany(d => d.Lodgings).WithRequired(l => l.Destination);
-            HasMany(d => d.Lodgings).WithRequired().HasForeignKey(l => l.LocationId);
+            HasMany(d => d.Lodgings).WithRequired(l => l.Destination);
+            // HasMany(d => d.Lodgings).WithRequired().HasForeignKey(l => l.LocationId);
         }
     }
 
@@ -25,7 +25,7 @@ namespace Model
             Property(l => l.MilesFromNearestAirport).HasPrecision(8, 1);
             HasOptional(l => l.PrimaryContact).WithMany(p => p.PrimaryContactFor);
             HasOptional(l => l.SecondaryContact).WithMany(p => p.SecondaryContactFor);
-            // HasRequired(l => l.Destination).WithMany(d => d.Lodgings).WillCascadeOnDelete(false);
+            HasRequired(l => l.Destination).WithMany(d => d.Lodgings).WillCascadeOnDelete(false);
         }
     }
 

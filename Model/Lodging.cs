@@ -14,9 +14,9 @@ namespace Model
         public string Name { get; set; }
         public string Owner { get; set; }
         public bool IsResort { get; set; }
-        // public Destination Destination { get; set; }
-        // public int DestinationId { get; set; }
-        public int LocationId { get; set; }
+        public Destination Destination { get; set; }
+        public int DestinationId { get; set; }
+        // public int LocationId { get; set; }
         public decimal MilesFromNearestAirport { get; set; }
         public List<InternetSpecial> InternetSpecials { get; set; }
         public Person PrimaryContact { get; set; }
