@@ -51,6 +51,7 @@
     <Compile Include="Lodging.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="PersonalInfo.cs" />
+    <Compile Include="PersonPhoto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Trip.cs" />
   </ItemGroup>
