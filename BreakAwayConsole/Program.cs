@@ -58,7 +58,7 @@ namespace BreakAwayConsole
             var person = new Person { 
                 FirstName = "Andy",
                 LastName = "You",
-                SocialSecurityNumber = 1345672
+                SocialSecurityNumber = 13456722
             };
 
             using (var context = new BreakAwayContext())

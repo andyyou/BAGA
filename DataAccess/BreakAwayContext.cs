@@ -44,6 +44,12 @@ namespace DataAccessForFluent
 
             modelBuilder.ComplexType<PersonalInfo>();
             modelBuilder.ComplexType<Address>().Property(a => a.StreetAddress).HasMaxLength(150);
+
+            // 設定一對多關係
+            // 預設
+            // modelBuilder.Entity<Destination>().HasMany(d => d.Lodgings).WithOptional(l => l.Destination);
+            // 單個必須
+            modelBuilder.Entity<Destination>().HasMany(d => d.Lodgings).WithRequired(l => l.Destination);
         }
     }
 }
