@@ -13,7 +13,7 @@ namespace BreakAwayConsole
     {
         static void Main(string[] args)
         {
-            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<BreakAwayContext>());
+            Database.SetInitializer(new DropCreateDatabaseAlways<BreakAwayContext>());
             InsertDestination();
 
             InsertTrip();
@@ -58,10 +58,12 @@ namespace BreakAwayConsole
 
         private static void InsertPerson()
         {
-            var person = new Person { 
+            var person = new Person
+            {
                 FirstName = "Andy",
                 LastName = "You",
-                SocialSecurityNumber = 134567229
+                SocialSecurityNumber = 134567230,
+                Photo = new PersonPhoto { Photo = new byte[] { 0 } }
             };
 
             using (var context = new BreakAwayContext())

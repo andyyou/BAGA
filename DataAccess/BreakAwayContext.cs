@@ -68,14 +68,17 @@ namespace DataAccessForFluent
 
             // 設定 1 對 1 或 1 對 0
             modelBuilder.Entity<PersonPhoto>().HasKey(p => p.PersonId);
+            
+           
             // modelBuilder.Entity<PersonPhoto>().HasRequired(p => p.PhotoOf).WithOptional(p => p.Photo);
 
             modelBuilder.Entity<PersonPhoto>().HasRequired(p => p.PhotoOf).WithRequiredDependent(p => p.Photo);
-            modelBuilder.Entity<Person>().HasRequired(p => p.Photo).WithRequiredPrincipal(p => p.PhotoOf);
+            
+            // modelBuilder.Entity<Person>().HasRequired(p => p.Photo).WithRequiredPrincipal(p => p.PhotoOf);
             
             
             // 修改資料庫 Table Name
-            modelBuilder.Entity<PersonPhoto>().ToTable("PersonPhotots");
+            // modelBuilder.Entity<PersonPhoto>().ToTable("PersonPhotots");
 
             // 修改 Column name
             modelBuilder.Entity<Destination>().ToTable("Locations");
@@ -87,6 +90,12 @@ namespace DataAccessForFluent
             modelBuilder.ComplexType<Address>().Property(a => a.State).HasColumnName("State");
             modelBuilder.ComplexType<Address>().Property(a => a.City).HasColumnName("City");
             modelBuilder.ComplexType<Address>().Property(a => a.ZipCode).HasColumnName("ZipCode");
+
+
+            modelBuilder.Entity<PersonPhoto>().Property(p => p.Photo).HasColumnType("image");
+            modelBuilder.Entity<Person>().ToTable("People");
+            modelBuilder.Entity<PersonPhoto>().ToTable("People");
+           
 
 
         }
