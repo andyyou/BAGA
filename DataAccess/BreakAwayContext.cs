@@ -10,6 +10,7 @@ namespace DataAccessForEntityType
 {
     public class BreakAwayContext:DbContext
     {
+       
         public DbSet<Destination> Destinations { get; set; }
         public DbSet<Lodging> Lodgings { get; set; }
         public DbSet<Trip> Trips { get; set; }
@@ -28,6 +29,7 @@ namespace DataAccessForEntityType
             modelBuilder.Configurations.Add(new PersonPhotoConfiguration());
             modelBuilder.Configurations.Add(new ReservationConfiguration());
             modelBuilder.ComplexType<Address>();
+
         }
     }
 }

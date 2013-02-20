@@ -11,16 +11,19 @@ namespace Model
             Property(d => d.Name).IsRequired();
             Property(d => d.Description).HasMaxLength(500);
             Property(d => d.Photo).HasColumnType("image");
+            Property(d => d.Name).IsRequired();
             HasMany(d => d.Lodgings).WithRequired(l => l.Destination);
             // HasMany(d => d.Lodgings).WithRequired().HasForeignKey(l => l.LocationId);
             ToTable("Locations");
             Property(d => d.DestinationId).HasColumnName("LocationId");
             Property(d => d.Name).HasColumnName("LocationName");
-            // Map(m => {
+            //Map(m =>
+            //{
             //    m.Properties(d => new { d.Name, d.Country, d.Description });
             //    m.ToTable("Locations");
             //});
-            //Map(m => {
+            //Map(m =>
+            //{
             //    m.Properties(d => new { d.Photo });
             //    m.ToTable("LocationPhotos");
             //});
@@ -38,7 +41,34 @@ namespace Model
             HasOptional(l => l.PrimaryContact).WithMany(p => p.PrimaryContactFor);
             HasOptional(l => l.SecondaryContact).WithMany(p => p.SecondaryContactFor);
             HasRequired(l => l.Destination).WithMany(d => d.Lodgings).WillCascadeOnDelete(false);
-           
+            //Map(m =>
+            //{
+            //    m.ToTable("Lodgings");
+            //    m.Requires("LodgingType").HasValue("Standard");
+            //}).Map<Resort>(m => {
+            //    m.Requires("LodgingType").HasValue("Resort");
+            //});
+
+            //Map(m =>
+            //{
+            //    m.ToTable("Lodgings");
+            //    m.Requires("IsResort").HasValue(false);
+            //}).Map<Resort>(m => {
+            //    m.Requires("IsResort").HasValue(true);
+            //});
+
+            //Map(m =>
+            //{
+            //    m.ToTable("Lodgings");
+            //}).Map<Resort>(m => {
+            //    m.ToTable("Resorts");
+            //    m.MapInheritedProperties();
+            //});
+            //HasOptional(l => l.PrimaryContact).WithMany(p => p.PrimaryContactFor).HasForeignKey(p => p.PrimaryContactId);
+
+            //HasOptional(l => l.SecondaryContact)
+            //    .WithMany(p => p.SecondaryContactFor)
+            //    .HasForeignKey(p => p.SecondaryContactId);
         }
     }
 
@@ -48,6 +78,7 @@ namespace Model
         {
             HasKey(t => t.Identifier).Property(t => t.Identifier).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             Property(t => t.RowVersion).IsRowVersion();
+            HasMany(t => t.Activities).WithMany(a => a.Trips).Map(c => c.ToTable("TripActivities"));
         }
     }
 
@@ -99,6 +130,7 @@ namespace Model
         public ActivityConfiguration()
         {
             Property(a => a.Name).IsRequired().HasMaxLength(150);
+            
         }
     }
 
@@ -110,7 +142,7 @@ namespace Model
             // HasRequired(p => p.PhotoOf).WithOptional(p => p.Photo);
             HasRequired(p => p.PhotoOf).WithRequiredDependent(p => p.Photo);
             // HasEntitySetName("PersonPhotos");
-            ToTable("PersonPhotos");
+            // ToTable("PersonPhotos");
             Property(p => p.Photo).HasColumnType("image");
             ToTable("People");
 

@@ -19,7 +19,9 @@ namespace Model
         // public int LocationId { get; set; }
         public decimal MilesFromNearestAirport { get; set; }
         public List<InternetSpecial> InternetSpecials { get; set; }
+        // public Nullable<int> PrimaryContactId { get; set; }
         public Person PrimaryContact { get; set; }
+        // public Nullable<int> SecondaryContactId { get; set; }
         public Person SecondaryContact { get; set; }
        
     }
