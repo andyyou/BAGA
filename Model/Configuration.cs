@@ -51,6 +51,9 @@ namespace Model
             Property(p => p.RowVersion).IsRowVersion();
             Property(p => p.SocialSecurityNumber).IsConcurrencyToken();
             HasRequired(p => p.Photo);
+            ToTable("People");
+           
+
         }
     }
 
@@ -99,6 +102,8 @@ namespace Model
             HasRequired(p => p.PhotoOf).WithRequiredDependent(p => p.Photo);
             // HasEntitySetName("PersonPhotos");
             ToTable("PersonPhotos");
+            Property(p => p.Photo).HasColumnType("image");
+            ToTable("People");
 
         }
     }

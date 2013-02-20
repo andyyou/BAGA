@@ -62,10 +62,10 @@ namespace BreakAwayConsole
         {
             var person = new Person
             {
-                SocialSecurityNumber = 125699258,
+                SocialSecurityNumber = 125699259,
                 FirstName = "Ken",
-                LastName = "Miller"
-                // Photo = new PersonPhoto { Photo = new byte[] { 0 } }
+                LastName = "Miller",
+                Photo = new PersonPhoto { Photo = new byte[] { 0 } }
             };
 
             using (var context = new BreakAwayContext())
