@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
+    [Table("People")]
     public class Person
     {
         [Key]
@@ -20,7 +21,7 @@ namespace Model
         [Timestamp]
         public byte[] RowVersion { get; set; }
         public Address Address { get; set; }
-        public PersonalInfo Info { get; set; }
+        public virtual PersonalInfo Info { get; set; }
         public List<Lodging> PrimaryContactFor { get; set; }
         public List<Lodging> SecondaryContactFor { get; set; }
         [Required]
