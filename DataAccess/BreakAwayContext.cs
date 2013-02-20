@@ -26,6 +26,7 @@ namespace DataAccessForEntityType
             modelBuilder.Configurations.Add(new InternetSpecialConfiguration());
             modelBuilder.Configurations.Add(new ActivityConfiguration());
             modelBuilder.Configurations.Add(new PersonPhotoConfiguration());
+            modelBuilder.Configurations.Add(new ReservationConfiguration());
             modelBuilder.ComplexType<Address>();
         }
     }

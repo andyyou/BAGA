@@ -116,5 +116,10 @@ namespace Model
         }
     }
 
+    public class ReservationConfiguration : EntityTypeConfiguration<Reservation>
+    { 
+        
+    }
+
 
 }

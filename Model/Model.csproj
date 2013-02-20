@@ -54,6 +54,7 @@
     <Compile Include="PersonalInfo.cs" />
     <Compile Include="PersonPhoto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reservation.cs" />
     <Compile Include="Trip.cs" />
   </ItemGroup>
   <ItemGroup>
