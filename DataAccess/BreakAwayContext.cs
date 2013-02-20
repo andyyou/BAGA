@@ -82,6 +82,13 @@ namespace DataAccessForFluent
             modelBuilder.Entity<Destination>().Property(d => d.DestinationId).HasColumnName("LocationId");
             modelBuilder.Entity<Destination>().Property(d => d.Name).HasColumnName("LocationName");
 
+            // 修改 Complex type column name
+            modelBuilder.ComplexType<Address>().Property(a => a.StreetAddress).HasColumnName("StreetAddress");
+            modelBuilder.ComplexType<Address>().Property(a => a.State).HasColumnName("State");
+            modelBuilder.ComplexType<Address>().Property(a => a.City).HasColumnName("City");
+            modelBuilder.ComplexType<Address>().Property(a => a.ZipCode).HasColumnName("ZipCode");
+
+
         }
     }
 }
