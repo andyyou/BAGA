@@ -16,6 +16,14 @@ namespace Model
             ToTable("Locations");
             Property(d => d.DestinationId).HasColumnName("LocationId");
             Property(d => d.Name).HasColumnName("LocationName");
+            // Map(m => {
+            //    m.Properties(d => new { d.Name, d.Country, d.Description });
+            //    m.ToTable("Locations");
+            //});
+            //Map(m => {
+            //    m.Properties(d => new { d.Photo });
+            //    m.ToTable("LocationPhotos");
+            //});
         }
     }
 
