@@ -14,6 +14,8 @@ namespace Model
             HasMany(d => d.Lodgings).WithRequired(l => l.Destination);
             // HasMany(d => d.Lodgings).WithRequired().HasForeignKey(l => l.LocationId);
             ToTable("Locations");
+            Property(d => d.DestinationId).HasColumnName("LocationId");
+            Property(d => d.Name).HasColumnName("LocationName");
         }
     }
 
