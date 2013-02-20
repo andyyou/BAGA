@@ -81,10 +81,10 @@ namespace DataAccessForFluent
             // modelBuilder.Entity<PersonPhoto>().ToTable("PersonPhotots");
 
             // 修改 Column name
-            modelBuilder.Entity<Destination>().ToTable("Locations");
-            modelBuilder.Entity<Destination>().Property(d => d.DestinationId).HasColumnName("LocationId");
-            modelBuilder.Entity<Destination>().Property(d => d.Name).HasColumnName("LocationName");
-
+            // modelBuilder.Entity<Destination>().ToTable("Locations");
+            // modelBuilder.Entity<Destination>().Property(d => d.DestinationId).HasColumnName("LocationId");
+            // modelBuilder.Entity<Destination>().Property(d => d.Name).HasColumnName("LocationName");
+            
             // 修改 Complex type column name
             modelBuilder.ComplexType<Address>().Property(a => a.StreetAddress).HasColumnName("StreetAddress");
             modelBuilder.ComplexType<Address>().Property(a => a.State).HasColumnName("State");
