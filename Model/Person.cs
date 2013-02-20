@@ -12,6 +12,10 @@ namespace Model
         public int SocialSecurityNumber { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public string FullName
+        {
+            get { return FirstName + LastName; }
+        }
         public byte[] RowVersion { get; set; }
         public Address Address { get; set; }
         public PersonalInfo Info { get; set; }

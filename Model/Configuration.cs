@@ -24,6 +24,7 @@ namespace Model
             //    m.Properties(d => new { d.Photo });
             //    m.ToTable("LocationPhotos");
             //});
+            Ignore(d => d.TodayForecast);
         }
     }
 
