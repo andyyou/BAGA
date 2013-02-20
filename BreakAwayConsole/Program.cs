@@ -139,6 +139,24 @@ namespace BreakAwayConsole
                 }
             }
         }
+
+        private static void InsertLodging()
+        {
+            var lodging = new Lodging
+            {
+                Name = "Rainy Day Motel",
+                Destination = new Destination { 
+                    Name = "Seattle, Washington",
+                    Country = "USA"
+                }
+            };
+
+            using (var context = new BreakAwayContext())
+            {
+                context.Lodgings.Add(lodging);
+                context.SaveChanges();
+            }
+        }
     }
 
     
