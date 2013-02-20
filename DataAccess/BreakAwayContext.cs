@@ -77,6 +77,11 @@ namespace DataAccessForFluent
             // 修改資料庫 Table Name
             modelBuilder.Entity<PersonPhoto>().ToTable("PersonPhotots");
 
+            // 修改 Column name
+            modelBuilder.Entity<Destination>().ToTable("Locations");
+            modelBuilder.Entity<Destination>().Property(d => d.DestinationId).HasColumnName("LocationId");
+            modelBuilder.Entity<Destination>().Property(d => d.Name).HasColumnName("LocationName");
+
         }
     }
 }
