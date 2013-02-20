@@ -95,6 +95,8 @@ namespace DataAccessForFluent
             modelBuilder.Entity<PersonPhoto>().Property(p => p.Photo).HasColumnType("image");
             modelBuilder.Entity<Person>().ToTable("People");
             modelBuilder.Entity<PersonPhoto>().ToTable("People");
+
+            modelBuilder.Entity<Destination>().Ignore(d => d.TodayForecast);
            
 
 
