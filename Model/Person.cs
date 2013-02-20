@@ -26,6 +26,7 @@ namespace Model
         public List<Lodging> SecondaryContactFor { get; set; }
         [Required]
         public PersonPhoto Photo { get; set; }
+        public List<Reservation> Reservations { get; set; }
         public Person()
         {
             Address = new Address();
