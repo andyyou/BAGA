@@ -15,7 +15,7 @@ namespace DataAccessForEntityType
         public DbSet<Lodging> Lodgings { get; set; }
         public DbSet<Trip> Trips { get; set; }
         public DbSet<Person> People { get; set; }
-
+       
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new DestinationConfiguration());

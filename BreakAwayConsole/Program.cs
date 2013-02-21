@@ -15,7 +15,10 @@ namespace BreakAwayConsole
     {
         static void Main(string[] args)
         {
-            Database.SetInitializer(new DropCreateDatabaseAlways<BreakAwayContext>());
+            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<BreakAwayContext>());
+
+            // Database.SetInitializer<BreakAwayContext>(null);
+
             InsertDestination();
             InserTrip();
             UpdateTrip();

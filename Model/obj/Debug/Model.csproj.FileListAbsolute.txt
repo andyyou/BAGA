@@ -3,6 +3,5 @@ C:\Projects\BAGA\Model\bin\Debug\Model.pdb
 C:\Projects\BAGA\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
 C:\Projects\BAGA\Model\obj\Debug\Model.dll
 C:\Projects\BAGA\Model\obj\Debug\Model.pdb
-C:\Projects\BAGA\Model\bin\Debug\Model.dll.config
 C:\Projects\BAGA\Model\bin\Debug\EntityFramework.dll
 C:\Projects\BAGA\Model\bin\Debug\EntityFramework.xml
